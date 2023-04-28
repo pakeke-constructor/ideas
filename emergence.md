@@ -258,17 +258,23 @@ other items by proxy.
 Here are some examples.<br>
 I have listed the mechanic (`M`) that it tags into, too.
 
+```
 - Host hat: immune to explosion damage
 - Kamikaze: creates a damaging explosion next to the player
-- MECHANIC: **Explosions**
+- MECHANIC: Explosions
+```
 
+```
 - Brimstone:  slow fire rate, with massive damaging lazer beam
 - Tammys head:  releases a burst of shots
-- MECHANIC: **Fire rate** 
+- MECHANIC: Fire rate
+```
 
+```
 - Lump of coal:  Shots deal extra damage based on distance travelled
 - Tiny planet:  Shots orbit, travelling for way longer
-- MECHANIC: **Shot range / shot trajectory**
+- MECHANIC: Shot range / shot trajectory
+```
 
 Each of these examples provides a cool synergy that is good for the player.
 
