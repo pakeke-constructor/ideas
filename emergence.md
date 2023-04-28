@@ -32,7 +32,7 @@ Chess is a highly-emergent game.<br>
 Because of this, it has existed for thousands of years, and is one of the most popular
 games played by people to this date.
 
-![chess](images/chess.jpg|300)
+![chess](images/chess.jpg)
 
 But chess on it's own is not very interesting.<br>
 Imagine if you were playing 1-player chess, where you just moved the pieces around.
@@ -74,7 +74,7 @@ lets not get lost in the weeds though. The two distinct examples are:
 - Emergence in building
 - Emergence in engineering
 
-#### Minecraft- Emergence in building:
+## Minecraft- Emergence in building:
 In minecraft, many players just want to build cool shit.
 I'd argue that *most* players want to do this, actually.
 
@@ -102,7 +102,7 @@ together, *combined* with the human mind, allows the player to create gameplay
 opportunities for themselves.[^1]
 
 
-#### Minecraft- Emergence in engineering:
+## Minecraft- Emergence in engineering:
 
 This is a more interesting aspect, but it also gives way to a more important concept that I
 want to talk about: ***Simplicity.***
@@ -154,7 +154,7 @@ Hence, it's important to ensure that emergent rulesets are sufficiently *simple*
 take advantage of them without much mental energy.
 
 
-#### Is Minecraft cheating?
+## Is Minecraft cheating?
 
 Okay, we get it. Minecraft is a brilliant game.<br> 
 And it's success shows it.
@@ -185,6 +185,8 @@ Okay, cool.
 So what's an example of emergent gameplay that's NOT within a sandbox context?
 
 ## Emergence in the Binding of Isaac
+
+![isaac](images/isaac.jpg)
 
 Yup yup, it's this game.
 If you play roguelikes, you probably saw this from a mile away.
