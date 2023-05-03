@@ -34,13 +34,13 @@ games played by people to this date.
 
 ![chess](images/chess.jpg)
 
-But chess on it's own is not very interesting.<br>
+But chess on its own is not very interesting.<br>
 Imagine if you were playing 1-player chess, where you just moved the pieces around.
 Would that be very fun? (No, it's not fun. And I know it's not fun, because nobody does it.)<br>
 I'm using this example, because I want to clarify something important, which I call
 "The golden rule":
 
-- *Emergence on it's own won't cut it. You need Emergence, combined with the human mind.*
+- *Emergence on its own won't cut it. You need Emergence, combined with the human mind.*
 
 Suddenly, if you have another player on the other side of the board,
 plotting their moves, and attempting to discover your tactics,
@@ -57,7 +57,7 @@ Humans created this gameplay element, *using* the emergent ruleset of chess.
 Now, chess is a simple example that's easy to grasp, but also a very basic, and awkward example.
 Since a lot of the gameplay is not actually created by the player, but rather, by the opponent.
 
-So lets look at another game that allows it's players to create gameplay value, 
+So lets look at another game that allows its players to create gameplay value, 
 without the need for an opponent:
 
 ## *Minecraft.*
@@ -65,9 +65,9 @@ without the need for an opponent:
 Minecraft is a ground-breaking, brilliant game.
 Before minecraft, there was no real sandbox game available to the casual gamer.
 
-It was so ahead of it's time, and it's success kinda speaks for itself.
+It was so ahead of its time, and its success kinda speaks for itself.
 
-What I'd like to look at though, is it's emergent game rules.
+What I'd like to look at though, is its emergent game rules.
 Now, there are 2 distinct examples that I want to pick apart here;
 lets not get lost in the weeds though. The two distinct examples are:
 
@@ -97,8 +97,8 @@ this time, to provide some depth to the walls, and to provide a rounded entrance
 Remember: stairs are just one block type. Players only need to remember one recipe to
 create all this wonderful stuff. Isn't that brilliant? 
 
-One block on it's own does not do anything interesting, but multiple blocks
-together, *combined* with the human mind, allows the player to create gameplay   
+One block on its own does not do anything interesting, but multiple blocks
+together, *combined* with the human mind, allows the player to create gameplay
 opportunities for themselves.[^1]
 
 
@@ -117,7 +117,7 @@ to be massive, industrial item-farms?
 Maybe! But whatever the case, they *definitely* did not conceive the designs.
 
 I'll run briefly how a basic mob-farm may work, by breaking down the systems:
-- Water pushes entities in it's flow direction
+- Water pushes entities in its flow direction
 - Mob entities spawn in the dark
 - Mob entities drop item entities on death
 - Entities with health take damage if they fall a big distance
@@ -145,7 +145,7 @@ These massive, industrial farms are not simple to make; they require quite a dee
 of the game systems, and they definitely require a lot of human creativity.
 
 Remember the golden rule: 
-- *Emergence on it's own won't cut it. You need Emergence, combined with the human mind.*
+- *Emergence on its own won't cut it. You need Emergence, combined with the human mind.*
 
 Players that aren't engaged enough to invest their time and energy into understanding the systems
 will fail to create these gameplay opportunities.[^1]
@@ -157,9 +157,9 @@ take advantage of them without much mental energy.
 ## Is Minecraft cheating?
 
 Okay, we get it. Minecraft is a brilliant game.<br> 
-And it's success shows it.
+And its success shows it.
 
-But doesn't it cheat? Minecraft is a sandbox game; of course it's going to be highly emergent
+But doesn't it cheat? Minecraft is a sandbox game; of course its going to be highly emergent
 when the player can literally alter the world.
 
 Yes, that's true; sandbox games *are* naturally emergent.
@@ -386,7 +386,7 @@ has the best emergent game systems out of any game ever made.
 And I could ramble on about the systems and how naturally emergent they are, but, quite frankly,
 it would be a waste of time. There are enough articles on this already. :^)
 
-What I want to address actually, is it's popularity.<br>
+What I want to address actually, is its popularity.<br>
 If this game has such amazing, emergent systems, then why isn't it more popular?
 
 It has 18000 reviews on steam, (indicating over 1 million downloads, for a revenue of roughly 30 million dollars,
@@ -413,7 +413,7 @@ a "more in-depth" experience for the player.
 Rather, it's about providing the player with sufficiently emergent rules, such that they can
 create their OWN gameplay.
 
-- *Emergence on it's own won't cut it. You need Emergence, combined with the human mind.*
+- *Emergence on its own won't cut it. You need Emergence, combined with the human mind.*
 
 Thanks for reading this opinion piece!
 
