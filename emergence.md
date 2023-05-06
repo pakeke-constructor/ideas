@@ -1,19 +1,13 @@
 
 # OPINION: Emergence in games
 
-A while back, a good friend of mine told me to learn more about game design.
-So over the past months, I've been taking notes and examining existing
-successful games to learn what actually makes games "fun". 
-
--------------------------
-
 In my opinion, **Emergence** is a very important concept in game development.<br>
 Especially in indie game development; as emergence can provide a lot of content without much work.
 
 In fact, I'd go as far to argue that having emergent systems that the player
-can interact with, is *the* most important thing in game development.
-Not because it drives success; (it does) but rather, because it's the thing that
-many game developers overlook / don't care enough about.
+can interact with, is *the* most important thing that the average indie dev should focus 
+on to improve their game quality.
+It seems to be a thing that many game developers overlook / don't care enough about.
 
 But... what *IS* Emergence in a game context?<br>
 It's quite hard to define!
@@ -376,6 +370,23 @@ as a developer, you lose control of your game when you create emergent rulesets.
 As I said, this isn't a bad thing most of the time. Just something to keep in mind :^)
 
 ----------------
+
+
+## Emergence in Super Auto Pets
+
+This blog post is getting quite long, but this is still a really good example that I want to cover.
+Thankfully, someone else has already done a pretty good analysis on SAP's mechanics that sums up some of my thoughts.
+
+So instead of doing my own analysis, I am instead going to link that blog post:
+[Have a read if you are extra interested.](https://a327ex.com/posts/super_auto_pets_mechanics)
+
+One significant takeaway is that unit abilities don't operate in a closed fashion.
+Similar to Isaac, abilities mesh with each other in an abstract fashion, which allows players to reason about the
+game creatively and come up with their own strategies.
+
+SAP is also a pretty neat example, since it completely NAILS the simplicity aspect that was
+talked about before.
+
 
 # One final (special) example:
 
