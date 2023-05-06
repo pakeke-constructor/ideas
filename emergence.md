@@ -1,13 +1,13 @@
 
 # OPINION: Emergence in games
 
-In my opinion, **Emergence** is a very important concept in game development.<br>
-Especially in indie game development; as emergence can provide a lot of content without much work.
+Emergence is not needed for a good game.<br>
+But as an indie developer, we are in a field where we **NEED** to put ourselves ahead by taking risks.
+If we don't, we will be outcompeted by others similar to us.
 
-In fact, I'd go as far to argue that having emergent systems that the player
-can interact with, is *the* most important thing that the average indie dev should focus 
-on to improve their game quality.
-It seems to be a thing that many game developers overlook / don't care enough about.
+Emergence offers us a way to create way more gameplay opportunities, for very little cost.
+As an indie dev, creating extra gameplay without needing to expend vast amounts of resources
+is very important.
 
 But... what *IS* Emergence in a game context?<br>
 It's quite hard to define!
@@ -367,7 +367,11 @@ Similar to how John Conway couldn't control the shape of Gosper's Glider gun,
 and similar to how the creators of Chess couldn't control how the Sicilian defence worked,
 as a developer, you lose control of your game when you create emergent rulesets.
 
-As I said, this isn't a bad thing most of the time. Just something to keep in mind :^)
+Note that this isn't neccessarily a "bad" thing.<br>
+With chess, the Sicilian defence does not hurt chess's integrity; it's just part of the game.
+
+Mainly, the loss of developer control is just something to keep in mind :^)
+
 
 ----------------
 
