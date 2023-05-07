@@ -17,6 +17,7 @@ A good example of this is the `entityDeath` event.<br>
 This event is called automatically when an entity dies, and the entity is
 passed in as the first argument, like so:
 ```lua
+-- base mod
 umg.call("entityDeath", ent)
 ```
 If other systems want to listen to this event, they can use `umg.on`:
@@ -56,6 +57,8 @@ outside of it's pure little abstract layer.
 
 So, we turn to *reverse event buses.*
 
+-----------------------
+
 With reverse event buses, we have two functions: 
 ```lua
 -- asks a question
@@ -72,15 +75,13 @@ umg.answer(question, answerFunc)
 local reducer = operators.OR
 
 local canAttack = umg.ask("isAttackBlocked", reducer, entity, targetEntity)
-
-if canAttack then
-    attack(entity, targetEntity)
-end
 ```
-The `operators.OR` is the reducer function; it takes all the results from the , and reduces
-them to one value by repeatedly applying the function.
-(you could also use logical AND, or even a sum function.)
+`reducer` is the reducer function; it reduces all the answers to one value
+by repeatedly applying itself to the answers.<br>
+(By nature, the reducer needs to be associative and commutative,
+So functions like `SUM` or `AND` would also work.)
 
+------------------------
 
 `answer` is similar to `on`, in that it responds to a question.<br>
 Instead of executing something, however, the `answer` should ideally be a pure
@@ -124,6 +125,11 @@ umg.ask("canOpenInventory", OR, inventory, ent) -- whether an inventory can be o
 umg.ask("isHidden", OR, ent) -- whether `ent` is hidden
 umg.ask("canUseItem", OR ent, itemEnt) -- whether `ent` can use `itemEnt`
 umg.ask("canRide", OR, ent, steedEnt) -- whether `ent` can ride `steedEnt`
+
+-- a more interesting one:
+umg.ask("getDamageMultiplier", MULTIPLICATION, ent) -- returns the damage multiplier for `ent`.
+-- Note that the reducer function is multiplication in this case.
+-- This is because we are combining the damage multipliers from all answers.
 ```
 
 
