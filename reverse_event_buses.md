@@ -98,6 +98,33 @@ umg.answer("isAttackBlocked", function(entity, targetEntity)
 end)
 ```
 
+We may also have another answer, e.g. inside the stun system:
+```lua
+umg.answer("isAttackBlocked", function(entity, targetEntity)
+    if entity.stunned then
+        -- entity is stunned, and cannot attack
+        return true 
+    end
+    return false
+end)
+```
+
+If either of these "answerers" return true, then the attack is blocked.
+
+-----------------
+
+All in all, the pattern can be summarized simply as so:
+
+- Regular event buses:
+    - Dispatch information in an abstract manner
+    - Doesn't care who is listening
+
+- Reverse event buses:
+    - Gather information in an abstract manner
+    - Doesn't care who gives the information
+
+------------------
+
 Now, just quickly, I want to recap on why this pattern is actually useful.
 *Why wouldn't you just check if the entities are on the same team in the `attack` code, instead of asking?*
 
