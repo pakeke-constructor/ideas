@@ -1,16 +1,19 @@
 
 # OPINION: Emergence in games
 
-Emergence is not needed for a good game.<br>
+Emergence is not needed for a good game. And we know this, because there are
+plenty of successful games out there that are non-emergent. 
+(Some examples being: Super Meat Boy, the whole Call of Duty franchise, Mario Kart)
+
 But as an indie developer, we are in a field where we **NEED** to put ourselves ahead by taking risks.
 If we don't, we will be outcompeted by others similar to us.
 
 Emergence offers us a way to create way more gameplay opportunities, for very little cost.
 As an indie dev, creating extra gameplay without needing to expend vast amounts of resources
-is very important.
+is very useful.
 
 But... what *IS* Emergence in a game context?<br>
-It's quite hard to define!
+Emergence itself is quite hard to define! 
 
 So in this blog post, I'll examine a few examples of good emergence from existing games,
 and cherry pick what I think is the good stuff.
