@@ -5,8 +5,11 @@
 "Untitled Mod Game" (or "UMG" in short) is a multiplayer
 game that is based on mods.
 
+I've been developing it for many months at this point, and it's been really
+fun!
+
 It's setup is similar to that of Garrys Mod or Roblox;
-most playable content is User-generated.
+where most playable content is User-generated.
 
 ------------------------------
 
@@ -63,7 +66,7 @@ So this setup is cool and all, but how would this work in a technical sense?<br>
 How do mods know about each other in this way?<br>
 Also, what stops other base mods from interacting with each other, causing the same class of problems?
 
-**Quick note: This section assumes a very basic understanding of Entity Component Systems and Event Buses in a gamedev context.**
+**Quick note: This section assumes a very basic understanding of gamedev design patterns, namely Entity Component Systems and event buses.**
 
 **TODO: Explain the following:**
 (Even give code examples if possible.)
@@ -75,5 +78,4 @@ Also, what stops other base mods from interacting with each other, causing the s
 - asking protocol, so other mods can determine what can/can't be ridden.
   - `canRide(riderEnt, steedEnt)`
   - (For example, only the blue team can ride blue horses)
-
 
