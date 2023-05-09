@@ -2,6 +2,10 @@
 
 # Technical implementation details and vision for UMG
 
+**NOTE: The more technical sections of this article require an understanding of `reverse_event_buses`, check that out if you want a fuller understanding.**
+
+----------------------------
+
 "Untitled Mod Game" (or "UMG" in short) is a multiplayer
 game that is based on mods.
 
@@ -17,11 +21,15 @@ However, UMG seeks to take things a bit further, and address
 a few issues that exist with the traditional traditional modding approach.
 
 With UMG, we have two "types" of mods: "Base" and "Playable" mods.
-- Base mods
-    - Base mods provides standardized protocols and tools for modders to use.
-    - They are not able to be "played", they are just APIs for other modders to tag into.
-- Playable mods
-    - Playable mods provide gameplay and game content.
+
+- Base mods:
+    - provide tools and infrastructure for modders to create content
+    - do not provide any playable content
+
+- Playable mods:
+    - provide gameplay and content
+
+---------------
 
 To explain the point of this, we need to understand what I call
 "The Riding problem".
@@ -47,7 +55,7 @@ This way, code is only written once in a generic fashion, and time is saved.
 
 But actually, there's a bigger problem than "duplicate code": *Compatibility.*<br>
 Imagine if someone loads the ridable elephants mod, and the ridable horses mod at the same time.<br>
-Now imagine the player jumps on a horse, and then goes over to an elephant,
+Imagine the player jumps on a horse, and then goes over to an elephant,
 and tries to ride the elephant *whilst riding* the horse.
 
 At best, nothing happens.<br>
@@ -70,6 +78,7 @@ To understand this, lets do a quick overview of UMG architecture:
 
 ## The UMG core Entity Component System:
 *If you have never heard of ECSes in a gamedev context, I recommend looking it up real quick.*
+
 
 In UMG, everything in the world is an entity.
 Players, bullets, enemies, trees, grass, are all entities.<br>
@@ -97,12 +106,23 @@ local ridableGroup = umg.group("ridable", "x", "y")
 
 local function update()
     for ent in ridableGroup do
-        local riderEnt = ent.ridable.rider
-        -- set the rider's position to the steed ent.
-        riderEnt.x = ent.x
-        riderEnt.y = ent.y
-        riderEnt.z = ent.z + ent.ridable.rideHeight
+        local riderEnt = ent.rider
+        if riderEnt ~= nil then
+            -- set the rider's position to the steed ent.
+            riderEnt.x = ent.x
+            riderEnt.y = ent.y
+            riderEnt.z = ent.z + ent.ridable.rideHeight
+        end
     end
+end
+
+-- Code for mounting.  This can be called by other mods, and is
+-- called automatically when the player clicks on the steed.
+local function mount(steedEnt, riderEnt)
+    if not ridableGroup:has(steedEnt) then
+        error("this entity isn't ridable!")
+    end
+    steedEnt.rider = riderEnt
 end
 
 ... -- more code here, etc
@@ -151,26 +171,58 @@ So, the `riding` mod knows NOTHING about elephant ears.<br>
 It also knows NOTHING about "knights" either. "Knights" may not even exist, depending on what mods are loaded!
 
 To give Mary and John the tools to solve this problem,
-we can use *event-bus abstraction.*
-(This was addressed in the `reverse_event_buses` article, you should check that out)
+we can use *event-bus abstraction.*<br>
+(This stuff was talked about in the `reverse_event_buses` article.)
 
 Specifically, John and Mary need two things:
 - Mary needs an event to be emitted whenever a ridable entity is mounted
-- 
+- John needs to signal to the `riding` mod that horses can't be mounted unless the entity is of knight class
+
+So, lets update our `mount` function from before:
 ```lua
 
+local function mount(steedEnt, riderEnt)
+    if not ridableGroup:has(steedEnt) then
+        error("this entity isn't ridable!")
+    end
+
+    -- John needs to answer this question
+    if umg.ask("ridingNotAllowed", OR, steedEnt, riderEnt) then
+        return -- not allowed!
+    end
+    
+    -- Mary needs this event
+    umg.call("entityMounted", steedEnt, riderEnt)
+    steedEnt.rider = riderEnt
+end
 
 ```
 
+Now, John and Mary can tag into these events, like so:
+```lua
+-- John's code:
+umg.answer("ridingNotAllowed", function(steedEnt, riderEnt)
+    if steedEnt.animal == HORSE and riderEnt.type ~= KNIGHT then
+        return true
+    end
+    return false
+end)
+```
 
-**TODO: Explain the following:**
-(Even give code examples if possible.)
+```lua
+-- Mary's code:
+umg.on("entityMounted", function(steedEnt, riderEnt)
+    if steedEnt.animal == ELEPHANT then
+        flapElephantEars(steedEnt)
+    end
+end)
+```
 
-- `ridable` component, for the steed
-- `rider` component, for the steed, pointing to the rider
-- events emitted so other mods can tag onto the behaviour:
-  - `mount(riderEnt, steedEnt)`   `unmount(riderEnt, steedEnt)`
-- asking protocol, so other mods can determine what can/can't be ridden.
-  - `canRide(riderEnt, steedEnt)`
-  - (For example, only the blue team can ride blue horses)
+Voila! Now, Mary and John can both have what they want, and
+*what's best*, is that their code is still 100% compatible.<br>
+Isn't that beautiful?
+
+This idea where mods are forced to be hyper-generic and hyper-compatible is a central goal of the UMG ecosystem.
+
+
 

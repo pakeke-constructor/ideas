@@ -1,7 +1,22 @@
 
 # Reverse event buses in Untitled Mod Game
 
-*Note: This reading requires a basic understanding of my vision for Untitled Mod Game. See my other post!*
+-------------------
+## PRELUDE: 
+*This reading requires a basic understanding of my vision for Untitled Mod Game:*<br>
+All you need to know is that there are two types of mods, "Base mods",
+and "Playable mods."
+
+- Base mods:
+    - provide tools and infrastructure for modders to create content
+    - do not provide any playable content
+
+- Playable mods:
+    - provide gameplay and content
+----------------------
+
+
+# Before we look at Reverse buses, lets understand normal event buses.
 
 Event buses are an *awesome* tool in the context of Untitled Mod Game.
 
