@@ -1,5 +1,4 @@
 
-
 # Technical implementation details for UMG
 
 **NOTE: The more technical sections of this article require an understanding of `reverse_event_buses`, check that out if you want a fuller understanding.**
@@ -127,10 +126,17 @@ end
 
 ... -- more code here, etc
 ```
-We would also have more code that sets up the rider, and mounts / unmounts
-the riding entity, etc.
 
-The main point is that now both the horse and the elephant can follow a
+I'd also like to point out that `riderEnt` does not neccessarily have to be a player.
+In UMG, there's not really such thing as a "player"; a player is just a regular entity.<br>
+With this generic setup, we can have any entity type doing the riding. Which allows cool stuff such as:
+- Enemies on horses
+- Horses with chests on their back (chest entity is riding)
+- Horses with lights on their back (torch entity is riding)
+- Elephants with gun turrets on their back (turret entity is riding)
+
+But anyway, that's getting sidetracked.<br>
+The main point of this is that now both the horse and the elephant can follow a
 standard protocol for riding:
 ```lua
 -- Horse entity
@@ -229,6 +235,24 @@ Other mods may also tag onto this stuff, and it will be 100% fine,
 since the `ridable` mod doesn't care (and doesn't even know) what mods are listening
 to the events and answering the questions.
 
+For example, maybe we want to have two teams, RED and BLUE.<br>
+This code makes it so only Blue team can use Blue horses, and same for Red:
+```lua
+-- Team system
+umg.answer("ridingNotAllowed", function(steedEnt, riderEnt)
+    if steedEnt.team and riderEnt.team and (steedEnt.team ~= riderEnt.team) then
+        -- not in same team! disallow riding.
+        return true
+    end
+    -- entities are either in same team, or don't have a team.
+    return false 
+end)
+```
+
+What's great, is that this code is 100% compatible with John and Mary's code from before.
+It's just *beautiful*.
+
+
 # Mod communication through components:
 
 Events buses are not the only way mods can communicate.<br>
@@ -289,19 +313,6 @@ the drawing of the entity, so all that it needs to care about is setting the ima
 
 It's beautiful, right? :)
 
---------------------
-
-## Question: How can the animation system be sure that the rendering system exists?
-
-Answer:<br>
-In UMG, Mods can specify dependencies.<br>
-So in this case, the `animation` mod could put the `rendering` mod as one
-of it's dependencies.
-
-This way, it knows that the `.image` component works the way it's supposed to.
-
-
------------------------------
 
 # To conclude:
 
