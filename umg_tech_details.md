@@ -1,6 +1,6 @@
 
 
-# Technical implementation details and vision for UMG
+# Technical implementation details for UMG
 
 **NOTE: The more technical sections of this article require an understanding of `reverse_event_buses`, check that out if you want a fuller understanding.**
 
@@ -168,10 +168,11 @@ Remember, the `riding` mod is a *base mod.*
 Which means it knows NOTHING about the current game context; all it cares about is the `ridable` component.
 
 So, the `riding` mod knows NOTHING about elephant ears.<br>
-It also knows NOTHING about "knights" either. "Knights" may not even exist, depending on what mods are loaded!
+It also knows NOTHING about "knights" either. The concept of "knights" may not even exist, depending on what mods are loaded!
 
-To give Mary and John the tools to solve this problem,
-we can use *event-bus abstraction.*<br>
+## Mod communication through event buses:
+
+To give Mary and John the tools to solve this problem, we can use *event-bus abstraction.*<br>
 (This stuff was talked about in the `reverse_event_buses` article.)
 
 Specifically, John and Mary need two things:
@@ -202,7 +203,7 @@ Now, John and Mary can tag into these events, like so:
 ```lua
 -- John's code:
 umg.answer("ridingNotAllowed", function(steedEnt, riderEnt)
-    if steedEnt.animal == HORSE and riderEnt.type ~= KNIGHT then
+    if steedEnt.animalType == HORSE and riderEnt.class ~= KNIGHT then
         return true
     end
     return false
@@ -212,7 +213,7 @@ end)
 ```lua
 -- Mary's code:
 umg.on("entityMounted", function(steedEnt, riderEnt)
-    if steedEnt.animal == ELEPHANT then
+    if steedEnt.animalType == ELEPHANT then
         flapElephantEars(steedEnt)
     end
 end)
@@ -223,6 +224,32 @@ Voila! Now, Mary and John can both have what they want, and
 Isn't that beautiful?
 
 This idea where mods are forced to be hyper-generic and hyper-compatible is a central goal of the UMG ecosystem.
+
+Other mods may also tag onto this stuff, and it will be 100% fine,
+since the `ridable` mod doesn't care (and doesn't even know) what mods are listening
+to the events and answering the questions.
+
+# Mod communication through components:
+
+Events buses are not the only way mods can communicate.<br>
+Often, communication is done by simply changing component values from within entities.
+
+Lets look at a real life snippet from the base mod:
+```lua
+local drawGroup = umg.group("image", "x", "y")
+```
+Here, we have a group of entities that should be drawn to the screen.
+Anything with an image, x, and y should be drawn to the screen.
+
+To use this functionality, we can simply add the x, y, image components to one of our entities:
+```lua
+local ent = server.entities.blank_entity()
+
+ent.x = 10
+ent.y = 15
+ent.image = "banana"
+```
+
 
 
 
