@@ -76,7 +76,7 @@ Also, what stops other base mods from being incompatible with each other, causin
 
 To understand this, lets do a quick overview of UMG architecture:
 
-## The UMG core Entity Component System:
+## The UMG Entity Component System:
 *If you have never heard of ECSes in a gamedev context, I recommend looking it up real quick.*
 
 
@@ -85,16 +85,16 @@ Players, bullets, enemies, trees, grass, are all entities.<br>
 Entities exist on both the server and the client; however only the server
 has the authority to create and delete them.
 
-A `Group` is like an array that holds entities.
+A `Group` is like an array that holds entities. (<-- Remember this, it's important.)<br>
 Entities are automatically added to groups if they have the required components for that group.
 
 ```lua
--- Here's a group with components (x, y, image).
+-- Here's a group with components  .x, .y  .image  
 -- All entities with these components are added to myGroup automatically.
 local myGroup = umg.group("x", "y", "image")
 ```
 
-We can then imagine our "Systems" iterating over `group`s of entities,
+Our "Systems" then will iterate over `group`s of entities,
 executing code and changing the state of entities as they go.
 
 So, back to the example from before. With the ridable horses and elephants.
@@ -234,22 +234,84 @@ to the events and answering the questions.
 Events buses are not the only way mods can communicate.<br>
 Often, communication is done by simply changing component values from within entities.
 
-Lets look at a real life snippet from the base mod:
-```lua
-local drawGroup = umg.group("image", "x", "y")
-```
-Here, we have a group of entities that should be drawn to the screen.
-Anything with an image, x, and y should be drawn to the screen.
+Here's an example:
 
-To use this functionality, we can simply add the x, y, image components to one of our entities:
+--------------------
+
+Lets say we want our mod to render entities:
 ```lua
-local ent = server.entities.blank_entity()
+-- rendering system
+local drawGroup = umg.group("image", "x", "y")
+
+local function draw()
+    -- this draw function is called every frame
+    for ent in drawGroup do
+        graphics.draw(ent.image, ent.x, ent.y)
+    end
+end
+```
+In this base mod, anything with an image, x, and y will be drawn to the screen.
+
+To use this functionality, we can simply add the `x, y, image` components to one of our entities:
+```lua
+local ent = newEntity()
 
 ent.x = 10
 ent.y = 15
 ent.image = "banana"
 ```
+Now, this entity will be drawn to the screen automatically, at position (10, 15), with image "banana".
+
+Awesome!<br>
+Okay, but what if we want an animation?
+
+To handle animation, we can have another system that *changes* the `.image` component
+with respect to time.<br>
+For example:
+```lua
+-- animation system
+local animationGroup = umg.group("animation")
+
+local function update()
+    -- this function is called every frame
+    local time = getTime()
+    for ent in animationGroup do
+        ent.image = getAnimationImage(ent.animation, time)
+    end
+end
+```
+
+What's cool, is that this animation code and the rendering code from before
+can be in entirely different systems, or even in *entirely different mods.*
+
+Here, the `animation` system is assuming that the rendering code will handle
+the drawing of the entity, so all that it needs to care about is setting the image.
+
+It's beautiful, right? :)
+
+--------------------
+
+## Question: How can the animation system be sure that the rendering system exists?
+
+Answer:<br>
+In UMG, Mods can specify dependencies.<br>
+So in this case, the `animation` mod could put the `rendering` mod as one
+of it's dependencies.
+
+This way, it knows that the `.image` component works the way it's supposed to.
 
 
+-----------------------------
+
+# To conclude:
+
+This document gives a brief overview of some design challenges (and solutions) that the UMG ecosystem has to deal with.
+
+I hope that the whole Base-mod / Playable-mod setup is a lot clearer, and I hope the
+reasoning behind it makes sense now.<br>
+It's certainly a challenging and interesting project, and I absolutely wish to see it through.
+
+Thanks for reading.
+- Oli
 
 
