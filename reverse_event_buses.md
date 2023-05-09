@@ -1,7 +1,7 @@
 
 # Reverse event buses in Untitled Mod Game
 
-*Note: This reading requires an understanding of my project vision for Untitled Mod Game. See my other post!*
+*Note: This reading requires a basic understanding of my vision for Untitled Mod Game. See my other post!*
 
 Event buses are an *awesome* tool in the context of Untitled Mod Game.
 
@@ -137,16 +137,19 @@ depending on the what mods are loaded.
 This is the exact same thing as event buses, except we are receiving information instead
 of dispatching information.
 
-# But is this a useful concept?
-Surely this idea is too niche to be used everywhere, right?  Is this a useful concept?
+# Is this pattern useful enough to justify it's existance?
 
-YES, Absolutely. This pattern SHOULD NOT be used everywhere. Alike event buses, this
-pattern is very easy to abuse, and should only be used when appropriate.
+It's pretty obvious just from looking at this pattern to see how easily
+it could be abused.<br>
+It's the same as normal event buses; powerful, yet easy to abuse.
 
-Still though, given my experience developing base mods for the platform so far,
-I would argue that this pattern is still *very* useful in certain circumstances.
+So, given the abuse potential, is this pattern worth it?
 
-Here are some other useful questions that could be asked:
+**Yes**, I would say so.<br>
+Perhaps this pattern is not useful in other problem spaces, but in UMG where we
+literally **NEED** a way to receive information unassumingly, reverse event buses just... *chefs kiss.*
+
+To demonstrate why, here are some other questions that could be asked:
 ```lua
 umg.ask("canOpenInventory", OR, inventory, ent) -- whether an inventory can be opened by `ent`
 umg.ask("isHidden", OR, ent) -- whether `ent` is hidden
@@ -154,7 +157,8 @@ umg.ask("canUseItem", OR ent, itemEnt) -- whether `ent` can use `itemEnt`
 umg.ask("canRide", OR, ent, steedEnt) -- whether `ent` can ride `steedEnt`
 
 -- a more interesting one:
-umg.ask("getDamageMultiplier", MULTIPLICATION, ent) -- returns the damage multiplier for `ent`.
+umg.ask("getDamageMultiplier", MULTIPLICATION, ent, targetEnt)
+-- returns the damage multiplier for `ent`.
 -- Note that the reducer function is multiplication in this case.
 -- This is because we are combining the damage multipliers from all answers.
 ```
