@@ -76,8 +76,6 @@ outside of it's pure little abstract layer.
 
 So, we turn to *reverse event buses.*
 
-![reverse_event_bus](images/reverse_event_bus.png)
-
 -----------------------
 
 With reverse event buses, we have two functions: 
@@ -131,6 +129,12 @@ end)
 ```
 
 If either of these "answerers" return true, then the attack is blocked.
+
+-----------------
+
+Here's an image that hopefully clarifies the idea further:
+
+![reverse_event_bus](images/reverse_event_bus.png)
 
 -----------------
 
