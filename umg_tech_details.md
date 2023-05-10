@@ -19,6 +19,12 @@ where most playable content is User-generated.
 However, UMG seeks to take things a bit further, and address
 a few issues that exist with the traditional traditional modding approach.
 
+**Traditional modding approach:**
+
+![traditional](images/regular_modding.png)
+
+-------------------
+
 With UMG, we have two "types" of mods: "Base" and "Playable" mods.
 
 - Base mods:
@@ -28,7 +34,16 @@ With UMG, we have two "types" of mods: "Base" and "Playable" mods.
 - Playable mods:
     - provide gameplay and content
 
+What's interesting about this setup, is that there is no "game".
+*Everything* is built as a mod.<br>
+Here's a diagram of what UMG would look like, under the same setup:
+
+![cooperative_modding](images/cooperative_modding.png)
+
 ---------------
+
+But, what's the point of this?<br>
+How is this any better than the former setup?<br>
 
 To explain the point of this, we need to understand what I call
 "The Riding problem".

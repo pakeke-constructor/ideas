@@ -18,6 +18,10 @@ and "Playable mods."
 
 # Before we look at Reverse buses, lets understand normal event buses.
 
+Regular event bus diagram:
+
+![event_bus](images/event_bus.png)
+
 Event buses are an *awesome* tool in the context of Untitled Mod Game.
 
 Whenever a significant action happens in a base mod, that base mod can simply
@@ -71,6 +75,8 @@ But it doesn't know what other mods are loaded! It also doesn't know the context
 outside of it's pure little abstract layer.
 
 So, we turn to *reverse event buses.*
+
+![reverse_event_bus](images/reverse_event_bus.png)
 
 -----------------------
 
