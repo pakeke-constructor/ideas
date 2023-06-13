@@ -35,7 +35,7 @@ But hang on... what even is a component? Or an entity, or a system?
 
 
 Concept	  | Explanation
-----------------------
+----------|-----------
 Component |	Plain old data with a name. Like a position, or an image
 Entity    | A game object. E.g. an apple, truck, or human. Contains one or more components, grouped together. Does not contain code
 System	  | Code that processes all entities with certain components
