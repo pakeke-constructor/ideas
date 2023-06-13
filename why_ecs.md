@@ -216,6 +216,10 @@ And now, the 3rd option:
 local cloneGun = {
     gun = { bullets = 1, bulletSpeed = 200 },
 
+    -- In this example, we put the cloning behaviour directly inside of the
+    -- clone gun entity.
+    -- This is a violation of ECS principles, because behaviour is supposed to be
+    -- applied globally...     but it gets the job done.
     bulletHit = function(ent, bulletEnt, hitEnt)
         hitEnt:deepClone()
     end
