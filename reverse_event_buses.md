@@ -93,7 +93,7 @@ umg.answer(question, answerFunc)
 -- attack system
 local reducer = operators.OR
 
-local canAttack = umg.ask("isAttackBlocked", reducer, entity, targetEntity)
+local isAttackBlocked = umg.ask("isAttackBlocked", reducer, entity, targetEntity)
 ```
 `reducer` is the reducer function; it reduces all the answers to one value
 by repeatedly applying itself to the answers.<br>
