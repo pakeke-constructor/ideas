@@ -132,8 +132,8 @@ Untitled Mod Game is a project I've been working on for a while.
 UMG uses a "special" ECS setup.<br>
 I call it "special", because we break a few rules:
 
-1: in UMG, entities are typed. (Classic ECS has no types for entities)
-2: in UMG, entities can contain functions (OMG!!! EVIL!)
+**RuleBreak 1:** in UMG, entities are typed. (Classic ECS has no types for entities)<br>
+**RuleBreak 2:** in UMG, entities can contain functions (OMG!!! EVIL!)<br>
 
 To visualize things, here is what an entity definition could look like in UMG:
 ```lua
@@ -226,6 +226,9 @@ But the world is not ideal. Us programmers have limited time.<br>
 And in the case of UMG, *modders* have limited patience.
 Are people really going to want to create a whole new system just to clone an entity?<br>
 Hell nah! People probably just want to see themselves clone their buddies as fast as possible.
+
+So therefore, UMG allows functions inside of entities.
+Not because its good, but because I believe **practicality > ideology**.
 
 Anyway, that's it for this blog post.
 
