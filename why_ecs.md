@@ -82,9 +82,6 @@ we are applying our draw rule globally to all entities that fit the profile.
 This allows us to create much more natural rules, which can give way for some nice emergence.
 (I wrote another blog post on emergence, you should give it a read!)
 
-
-![ecs](images/ECS.png)
-
 However, the biggest benefit to ECS is not actually the "naturalness" of it;
 rather, the biggest benefit is *scalability in design.*<br>
 We have applied a *global* rule to entities. And if you know anything about software
