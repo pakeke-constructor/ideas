@@ -170,11 +170,13 @@ But what about really niche cases? For example, what if I want to make a gun tha
 Well, let's try implement it!
 
 We have a few options here:<br>
-1: Hardcode the clone gun behaviour inside a system that only the clone gun uses.  (Bad, because we are creating a global rule that will only affect one entity type)
-2: Create a sophisticated command-template system. The clone gun can then use an on-hit clone command that's ran when the bullet hits an entity. (Better, but a blatant violation of YAGNI.)
-3: Hardcode the clone gun behaviour inside a function within the clone gun entity. (Violation of pure ECS principles, but other than that, the easiest solution)
+
+**OPTION 1:** Hardcode the clone gun behaviour inside a system that only the clone gun uses.  (Bad, because we are creating a global rule that will only affect one entity type)<br>
+**OPTION 2:** Create a sophisticated command-template system. The clone gun can then use an on-hit clone command that's ran when the bullet hits an entity. (Better, but a blatant violation of YAGNI.)<br>
+**OPTION 3:** Hardcode the clone gun behaviour inside a function within the clone gun entity. (Violation of pure ECS principles, but other than that, the easiest solution)
 
 Option 1 is obviously stupid, so lets just ignore it.
+
 Lets look at what option 2 could look like:
 ```lua
 -- clone gun entity:
