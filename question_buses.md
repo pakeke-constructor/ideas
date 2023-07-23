@@ -1,5 +1,5 @@
 
-# Reverse event buses in Untitled Mod Game
+# Question buses in Untitled Mod Game
 
 -------------------
 ## PRELUDE: 
@@ -16,9 +16,9 @@ and "Playable mods."
 ----------------------
 
 
-# Before we look at Reverse buses, lets understand normal event buses.
+# Before we look at question buses, lets understand event buses.
 
-Regular event bus diagram:
+Event bus diagram:
 
 ![event_bus](images/event_bus.png)
 
@@ -65,7 +65,7 @@ Okay, so event buses are great for dispatching information when we are within an
 But sometimes we don't want to dispatch information.<br>
 Instead, we may want to *receive* information.
 
-Behold, the holy *reverse event bus*!!!
+Behold, the holy *question bus*!!! (aka "Reverse event bus")
 
 (I think it's best explained if I give a problem statement, and an example.)
 
@@ -74,11 +74,11 @@ This system needs to know if an entity can attack or not.<br>
 But it doesn't know what other mods are loaded! It also doesn't know the context of the game
 outside of it's pure little abstract layer.
 
-So, we turn to *reverse event buses.*
+So, we turn to *question buses.*
 
 -----------------------
 
-With reverse event buses, we have two functions: 
+With question buses, we have two functions: 
 ```lua
 -- asks a question
 umg.ask(question, reducer, ...)
@@ -134,7 +134,7 @@ If either of these "answerers" return true, then the attack is blocked.
 
 Here's an image that hopefully clarifies the idea further:
 
-![reverse_event_bus](images/reverse_event_bus.png)
+![question_bus](images/question_bus.png)
 
 -----------------
 
@@ -144,7 +144,7 @@ All in all, the pattern can be summarized simply as so:
     - Dispatch information in an abstract manner
     - Doesn't care who is listening
 
-- Reverse event buses:
+- Question buses:
     - Gather information in an abstract manner
     - Doesn't care who gives the information
 
@@ -172,7 +172,7 @@ So, given the abuse potential, is this pattern worth it?
 
 **Yes**, I would say so.<br>
 Perhaps this pattern is not useful in other problem spaces, but in UMG where we
-literally **NEED** a way to receive information unassumingly, reverse event buses just... *chefs kiss.*
+literally **NEED** a way to receive information unassumingly, question buses just... *chefs kiss.*
 
 To demonstrate why, here are some other questions that could be asked:
 ```lua
@@ -190,7 +190,7 @@ umg.ask("getDamageMultiplier", MULTIPLICATION, ent, targetEnt)
 
 
 # To conclude:
-Reverse event buses are a cool concept! :)
+question buses are a cool concept! :)
 
 Although they can probably be abused very easily, (same as event buses,)
 they still provide a very useful pattern for my project.
