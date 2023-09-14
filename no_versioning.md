@@ -161,20 +161,14 @@ stateDiagram-v2
     weather  -->    base
     weather  -->    light
 
-    test     -->    xy
     test     -->    borders
 
     test --> modern
     test --> projectiles
 
-    test --> scheduling
-    test --> commands
-    test --> worldeditor
-
-
 ```
 
-I simplified the diagram greatly, because the original was too cluttered and hard to read.
+I simplified the diagram greatly, because the original was too cluttered and hard to read. (roughly 2/3rds of edges are missing)
 
 Can you *imagine* what a nightmare this would be, if every mod was able to use it's own versions for stuff?<br>
 It just wouldn't be possible. Versioning is not compatible with UMG's vision. 
