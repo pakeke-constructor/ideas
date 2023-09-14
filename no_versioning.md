@@ -167,6 +167,10 @@ stateDiagram-v2
     test --> modern
     test --> projectiles
 
+    test --> scheduling
+    test --> commands
+    test --> worldeditor
+
 
 ```
 
