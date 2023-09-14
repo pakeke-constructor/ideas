@@ -164,6 +164,9 @@ stateDiagram-v2
     test     -->    xy
     test     -->    borders
 
+    test --> modern
+    test --> projectiles
+
 
 ```
 
