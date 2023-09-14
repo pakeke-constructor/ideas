@@ -143,16 +143,9 @@ stateDiagram-v2
     base --> input
     input --> objects
     base --> rendering
-    rendering --> objects
-    rendering --> typecheck
-    rendering --> reducers
-    rendering --> state
     rendering --> dimensions
     dimensions --> sync
     dimensions --> objects
-    rendering --> scheduling
-    scheduling --> typecheck
-    scheduling --> objects
     base --> reducers
     base --> physics
     physics --> state
@@ -201,16 +194,7 @@ stateDiagram-v2
     usables --> objects
     usables --> sync
     usables --> input
-    borders --> dimensions
-    borders --> rendering
-    borders --> scheduling
-    borders --> objects
     borders --> typecheck
-    categories --> base
-    categories --> chunks
-    chunks --> base
-    chat --> base
-    commands --> chat
     commands --> base
     commands --> ui
     crafting --> base
@@ -224,53 +208,23 @@ stateDiagram-v2
     modern --> categories
     modern --> worldeditor
     worldeditor --> base
-    worldeditor --> chat
     worldeditor --> ui
-    worldeditor --> chunks
-    modern --> chunks
-    modern --> chat
     modern --> ui
     modern --> grids
     move_behaviour --> base
     placement --> base
-    projectiles --> typecheck
-    projectiles --> sync
     projectiles --> objects
     projectiles --> state
-    projectiles --> input
-    projectiles --> rendering
-    projectiles --> reducers
-    projectiles --> physics
-    projectiles --> items
-    projectiles --> control
-    projectiles --> xy
-    projectiles --> juice
     projectiles --> sound
-    projectiles --> mortality
-    projectiles --> usables
-    terrain --> base
-    test --> base
     test --> juice
     test --> chat
     test --> light
-    test --> items
-    test --> follow
-    test --> placement
-    test --> crafting
-    test --> move_behaviour
-    test --> terrain
-    test --> worldeditor
-    test --> commands
-    test --> modern
     test --> weather
     weather --> base
     weather --> light
     weather --> chat
     test --> vignette
     vignette --> base
-    test --> scheduling
-    test --> projectiles
-    test --> rendering
     test --> xy
     test --> borders
 
