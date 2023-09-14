@@ -77,118 +77,94 @@ But what's bad, is that this setup will spread like a cancer. Any mods that buil
 
 It would have been much better if whoever wrote `projectiles` was instead forced to use `dimensions_v1`; that way, compatibility between mods is guaranteed.
 
+----------------
 
-To hammer it home, this is a crude example of what the current `test` mod's dependency tree looks like:
-(This isn't even the whole tree, I stopped coz it got too big)
-
-```mermaid
-
-stateDiagram-v2
-    xy --> reducers
-    riding --> reducers
-    projectiles --> reducers
-    inventory --> reducers
-    sync --> reducers
-    state --> reducers
-    input --> reducers
-
-    objects --> typecheck
-    riding --> typecheck
-    projectiles --> typecheck
-    inventory --> typecheck
-    sync --> typecheck
-    state --> typecheck
-    input --> typecheck
-
-    xy --> objects
-    riding --> objects
-    projectiles --> objects
-    inventory --> objects
-    sync --> objects
-    state --> objects
-    input --> objects
-
-    test --> sound
-
-    inventory --> input
-    projectiles --> input
-    riding --> input
-
-    inventory --> xy
-    riding --> xy
-    projectiles --> xy
-
-```
-
+To hammer it home, here's a (simplified) version of the dependency tree for the existing UMG mod, `test`:
 
 
 ```mermaid
 
 stateDiagram-v2
-    borders --> dimensions
-    borders --> rendering
-    borders --> scheduling
-    borders --> typecheck
-    base --> typecheck
-    base --> sync
-    sync --> typecheck
-    sync --> reducers
-    base --> objects
-    objects --> typecheck
-    base --> state
-    state --> objects
-    state --> typecheck
-    state --> reducers
-    base --> input
-    input --> objects
-    base --> rendering
-    rendering --> dimensions
-    dimensions --> sync
-    dimensions --> objects
-    base --> reducers
-    base --> physics
-    physics --> state
-    physics --> dimensions
-    physics --> xy
-    xy --> sync
-    xy --> typecheck
-    xy --> state
-    xy --> reducers
-    base --> control
-    control --> input
-    control --> rendering
-    control --> xy
-    control --> sync
-    base --> xy
-    base --> follow
-    follow --> control
-    follow --> rendering
-    follow --> typecheck
-    base --> juice
-    usables --> items
-    items --> objects
-    items --> sync
-    items --> rendering
-    items --> ui
-    ui --> rendering
-    ui --> input
-    items --> input
-    usables --> objects
-    usables --> sync
-    usables --> input
-    borders --> typecheck
-    commands --> base
-    commands --> ui
-    crafting --> base
-    crafting --> items
-    grids --> base
-    grids --> categories
-    grids --> typecheck
-    weather --> chat
-    test --> vignette
-    vignette --> base
-    test --> xy
-    test --> borders
+    borders  -->    dimensions
+    borders  -->    rendering
+
+    base     -->    typecheck
+
+    sync     -->    reducers
+    base     -->    objects
+    objects  -->    typecheck
+    base     -->    state_
+    state    -->    objects
+    state    -->    typecheck
+    state    -->    reducers
+    base     -->    input
+    input    -->    objects
+    base     -->    rendering
+    rendering        -->    objects
+    rendering        -->    typecheck
+
+    scheduling       -->    typecheck
+    scheduling       -->    objects
+    base     -->    reducers
+    base     -->    physics
+    physics  -->    state_
+    physics  -->    dimensions
+    physics  -->    xy
+    xy       -->    sync
+    xy       -->    typecheck
+    xy       -->    state_
+    xy       -->    reducers
+    base     -->    control
+    control  -->    input
+    control  -->    rendering
+    control  -->    xy
+    control  -->    sync
+    base     -->    xy
+    base     -->    follow
+    follow   -->    control
+
+    juice    -->    typecheck
+
+    base     -->    initializers
+    initializers     -->    dimensions
+    initializers     -->    xy
+
+    ui       -->    input
+    items    -->    input
+
+    borders  -->    objects
+    borders  -->    typecheck
+    categories       -->    base
+    categories       -->    chunks
+    chunks   -->    base
+    chat     -->    base
+    commands         -->    chat
+
+    crafting         -->    base
+    crafting         -->    items
+    grids    -->    base
+    grids    -->    categories
+    grids    -->    typecheck
+
+    worldeditor      -->    ui
+    worldeditor      -->    chunks
+    modern   -->    chunks
+    modern   -->    chat
+    modern   -->    ui
+    modern   -->    grids
+    projectiles      -->    mortality
+    projectiles      -->    usables
+    test     -->    base
+    test     -->    juice
+
+    test     -->    weather
+    weather  -->    base
+    weather  -->    light
+
+    test     -->    xy
+    test     -->    borders
+
 
 ```
+
 
