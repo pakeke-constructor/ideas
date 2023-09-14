@@ -170,4 +170,18 @@ stateDiagram-v2
 
 ```
 
+I simplified the diagram greatly, because the original was too cluttered and hard to read.
+
+Can you *imagine* what a nightmare this would be, if every mod was able to use it's own versions for stuff?<br>
+It just wouldn't be possible. Versioning is not compatible with UMG's vision. 
+
+But as stated previously... versioning IS useful, mainly for dealing with breaking changes. So how does UMG deal with breaking changes?
+
+Well... it doesn't.<br>
+Breaking changes is just something that will have to be avoided. To be fair, Java is a programming language [that has taken this exact approach](https://blog.jooq.org/the-lame-side-of-javas-backwards-compatibility/), and hey, they haven't done too poorly.
+
+The main painstaking downside of this setup is that we are ASSUMING that the base mods are going to be developed in a forward thinking, robust manner.<br>
+That is, developed free of future tech debt, and developed with all future requirements predicted for, (an impossible task.)<br>
+Unfortunetely, I don't believe there is another solution. C'est la vie, brother!
+
 
