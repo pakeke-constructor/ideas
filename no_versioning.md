@@ -128,7 +128,6 @@ stateDiagram-v2
     borders --> dimensions
     borders --> rendering
     borders --> scheduling
-    borders --> objects
     borders --> typecheck
     base --> typecheck
     base --> sync
@@ -166,23 +165,6 @@ stateDiagram-v2
     follow --> rendering
     follow --> typecheck
     base --> juice
-    juice --> state
-    juice --> rendering
-    juice --> reducers
-    juice --> typecheck
-    base --> sound
-    sound --> objects
-    sound --> typecheck
-    base --> mortality
-    mortality --> sync
-    mortality --> typecheck
-    mortality --> rendering
-    base --> scheduling
-    base --> dimensions
-    base --> initializers
-    initializers --> dimensions
-    initializers --> xy
-    base --> usables
     usables --> items
     items --> objects
     items --> sync
@@ -202,26 +184,6 @@ stateDiagram-v2
     grids --> base
     grids --> categories
     grids --> typecheck
-    light --> rendering
-    light --> reducers
-    modern --> base
-    modern --> categories
-    modern --> worldeditor
-    worldeditor --> base
-    worldeditor --> ui
-    modern --> ui
-    modern --> grids
-    move_behaviour --> base
-    placement --> base
-    projectiles --> objects
-    projectiles --> state
-    projectiles --> sound
-    test --> juice
-    test --> chat
-    test --> light
-    test --> weather
-    weather --> base
-    weather --> light
     weather --> chat
     test --> vignette
     vignette --> base
