@@ -135,20 +135,21 @@ complex, intricately engineered item farms.
 
 Why not?
 
-In my opinion, it all comes down to *simplicity.*  If the rules become too hard to grasp, then a
-bunch of players are cut off, either because they aren't patient enough, or they aren't willing
-to invest the mental energy in devising an idea that takes advantage of the rules.
+In my opinion, it all comes down to *simplicity.*<br>
+If the rules become too difficult to apply in a creative manner, then
+a bunch of players are cut off. (either because they aren't patient enough, or they aren't willing
+to invest a lot of mental energy in the game.)
 These massive, industrial farms are not simple to make; they require quite a deep understanding
 of the game systems, and they definitely require a lot of human creativity.
 
 Remember the golden rule: 
 - *Emergence on its own won't cut it. You need Emergence, combined with the human mind.*
 
-Players that aren't engaged enough to invest their time and energy into understanding the systems
+Players that aren't engaged enough to invest a bunch of time and energy
 will fail to create these gameplay opportunities.[^1]
 
-Hence, it's important to ensure that emergent rulesets are sufficiently *simple*, so our players can
-take advantage of them without much mental energy.
+To sum it up, it's not about how *simple* the rules are; rather, it's about how
+*simply the player can work with them.*
 
 
 ## Is Minecraft cheating?
@@ -166,13 +167,13 @@ because they don't provide the player with emergent gameplay opportunities like 
 
 A few examples of this are:
 - Eden
-- Cube World
+- Trove
 - Eco
 
-I haven't been able to find any "automatic farm" designs for any of these games;
+I've hardly been able to find any "automatic farm" designs for any of these games;
 (Or at least, no designs that are out of scope of what the developer intended.)
 
-All existing designs for stuff lay within the developer's closed vision for gameplay,
+Pretty much all existing designs for stuff lay within the developer's closed vision for gameplay,
 which is a sign of insufficient emergence.
 
 -------------
@@ -244,9 +245,9 @@ mechanic `M`:
 Item Z: doubles "M" when the player is on low health.
 ```
 
-Suddenly, we have potential for a synergy between low-health playstyles,
-`Item Z`, and `Item Y`. Isn't that brilliant?
-It cost us *NOTHING* to do this, we literally gained gameplay for free.
+Suddenly, we have potential for a synergy between `Item Z`, and `Item Y` for free. Isn't that brilliant?<br>
+It cost us *NOTHING* to do this, we literally gained gameplay for free.<br
+Not only this, but any other item that meshes with the existing mechanic "M" will synergize with
 
 The Binding of Isaac does this kind of thing really *really* well,
 by having virtually all passive items tag into game mechanics and mesh with
@@ -394,34 +395,6 @@ game creatively and come up with their own strategies.
 SAP is also a pretty neat example, since it completely NAILS the simplicity aspect that was
 talked about before.
 
-
-# One final (special) example:
-
-- ***Dwarf Fortress.***
-
-I don't think many people would call me crazy if I said that Dwarf Fortress
-has the best emergent game systems out of any game ever made. 
-And I could ramble on about the systems and how naturally emergent they are, but, quite frankly,
-it would be a waste of time. There are enough articles on this already. :^)
-
-What I want to address actually, is its popularity.<br>
-If this game has such amazing, emergent systems, then why isn't it more popular?
-
-It has 18000 reviews on steam, (indicating over 1 million downloads, for a revenue of roughly 30 million dollars,
-which is very successful) but this game's success pales in comparison to something like Minecraft,
-despite the fact that it was created before Minecraft.
-
-In my opinion, it comes down to **broad appeal**.<br>
-Most of DF's gameplay does not cater to the casual gamer, but rather, to the nerd.
-DF's controls and systems are very hard to use, and thus,
-DF caters to the people who are patient; the people who care enough to learn a complex set of commands from the get-go.
-Likewise, the game is singleplayer; which means that it's not a game that can be learned through friends.
-
-With this, DF hits a much tighter niche, and pushes away a lot of the
-broader audience.
-
-If the Adams brothers focused much more on creating a noob-friendly user-experience when starting out, 
-then I suspect that DF would be a lot more popular today.
 
 # TO CONCLUDE:
 

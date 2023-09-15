@@ -51,7 +51,7 @@ stateDiagram-v2
     projectiles --> dimensions_v0
 ```
 
-But lets assume that there was a breaking change in the `dimensions` mod, from version 0.0 to version 1.0, which overhauled the way entities are stored inside of dimensions, and changed a few things of the API.
+But lets assume that there was a breaking change in the `dimensions` mod, from version 0.0 to version 1.0, which overhauled the way entities are stored inside of dimensions, and changed a few things about the API.
 
 Lets say that the `riding` mod updated to the latest version, but the author of the `projectiles` mod disagreed with the changes, so they stayed on the older version.<br>
 Suddenly, we would have a setup like so:
@@ -168,7 +168,7 @@ stateDiagram-v2
 
 ```
 
-I simplified the diagram greatly, because the original was too cluttered and hard to read. (roughly half of edges are missing)
+I simplified the diagram greatly, because the original was too cluttered and hard to read. (roughly half the edges have been omitted.)
 
 Can you *imagine* what a nightmare this would be, if every mod was able to use it's own versions for stuff?<br>
 It just wouldn't be possible. Versioning is not compatible with UMG's vision. 
@@ -176,7 +176,7 @@ It just wouldn't be possible. Versioning is not compatible with UMG's vision.
 But as stated previously... versioning IS useful, mainly for dealing with breaking changes. So how does UMG deal with breaking changes?
 
 Well... it doesn't.<br>
-Breaking changes is just something that will have to be avoided. To be fair, Java is a programming language [that has taken this exact approach](https://blog.jooq.org/the-lame-side-of-javas-backwards-compatibility/), and hey, they haven't done too poorly.
+Breaking changes will simply have to be avoided. To be fair, Java is a programming language [that has taken this exact approach](https://blog.jooq.org/the-lame-side-of-javas-backwards-compatibility/), and hey, they haven't done too poorly.
 
 The main painstaking downside of this setup is that we are ASSUMING that the base mods are going to be developed in a forward thinking, robust manner.<br>
 That is, developed free of future tech debt, and developed with all future requirements predicted for, (an impossible task.)<br>
