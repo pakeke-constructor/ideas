@@ -246,8 +246,8 @@ Item Z: doubles "M" when the player is on low health.
 ```
 
 Suddenly, we have potential for a synergy between `Item Z`, and `Item Y` for free. Isn't that brilliant?<br>
-It cost us *NOTHING* to do this, we literally gained gameplay for free.<br
-Not only this, but any other item that meshes with the existing mechanic "M" will synergize with
+It cost us *NOTHING* to do this, we literally gained gameplay for free.<br>
+Not only this, but any other item that meshes with the existing mechanic "M" will either be a synergy/anti-synergy to `Item Z` and `Item Y`.
 
 The Binding of Isaac does this kind of thing really *really* well,
 by having virtually all passive items tag into game mechanics and mesh with
@@ -259,13 +259,15 @@ I have listed the mechanic (`M`) that it tags into, too.
 ```
 - Host hat: immune to explosion damage
 - Kamikaze: creates a damaging explosion next to the player
+- Glitter bombs: Your explosions spawn pickups
 - MECHANIC: Explosions
 ```
+This synergy gives infinite pickups, free explosions, and a tonne of damage.
 
 ```
-- Brimstone:  slow fire rate, with massive damaging lazer beam
-- Tammys head:  releases a burst of shots
-- MECHANIC: Fire rate
+- Brimstone:  Replaces tears with a slow, massive damaging lazer beam
+- Tammys head:  releases a burst of whatever tear type is active
+- MECHANIC: Fire rate / tear type
 ```
 
 ```
@@ -345,16 +347,13 @@ Players shoot bullet at zombie, miss and hit friend --> Player kills friend!
 ```
 
 Suddenly, we have a situation where players can accidentally shoot
-and kill their friends, which is quite bad.
-
-And we can't change this, since it's part of our game rules that fast moving
-objects deal damage!
+and kill their friends, which, (at face value,) is bad.
 
 I call this the "Friendly Fire dilemma".
 
 To put it frankly, this is the cost that we pay for emergent systems.
 Sometimes our rules will have unintended consequences that we cannot solve without
-fudging with the rules in an unnatural, non-emergent fashion.
+fudging with the rules in an unnatural, non-emergent fashion.[^2]
 
 Thankfully, these issues aren't a big deal generally; as players will actively work
 *WITH* the rules to achieve their goal, not against them.<br>
@@ -414,4 +413,6 @@ Thanks for reading this opinion piece!
 ----------------
 
 [^1]: When I say that a player "Creates gameplay", I mean that the player executes actions, sets goals, or interacts with the game world in a way that the developer did not directly specify. For example, a chess player executing a discovered attack with their knight. The creators of chess did not "create" this mechanic, this mechanic was instead "created" by the players.
+
+[^2]: YES, we *could* easily hardcode it so that bullets shot by a player don't harm players. But this kinda goes against the point of emergent rulesets in the first place. The whole point of an emergent ruleset is so that the players can mesh with the rules in a creative fashion! If we put in restrictions like this, we are closing corridoors of opportunity. This situation where players can harm their allies? This can also be a GOOD situation, if you look at it a bit differently. Suddenly, friendly-fire is now a mechanic of the game; a mechanic that must be taken into account when approaching levels/situations. Also, fudging with the rules in this fashion is highly unintuitive from a player PoV. Why do my bullets not deal damage to my buddies, but crashing a car into my buddies does deal damage? If we want the player to understand our rules intuitively, fudging with rules like this is a bad idea.
 
